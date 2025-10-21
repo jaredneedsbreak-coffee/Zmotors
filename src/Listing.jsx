@@ -127,7 +127,7 @@ const Listing = () => {
 		car.range.toLowerCase().includes(search.toLowerCase())
 	);
 
-	// Pagination
+
 	const carsPerPage = 6;
 	const [currentPage, setCurrentPage] = useState(1);
 	const totalPages = Math.ceil(filteredCars.length / carsPerPage);
@@ -140,7 +140,7 @@ const Listing = () => {
 		setCurrentPage(page);
 	};
 
-	// Reset to first page on search
+
 	React.useEffect(() => {
 		setCurrentPage(1);
 	}, [search]);
@@ -154,7 +154,7 @@ const Listing = () => {
 		setOrderCar(null);
 		setOrderSuccess(true);
 		setShowSuccessModal(true);
-		// Here you could send orderData to a backend or show a confirmation
+	
 		setTimeout(() => {
 			setShowSuccessModal(false);
 		}, 2000);
