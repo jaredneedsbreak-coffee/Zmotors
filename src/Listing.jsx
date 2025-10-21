@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Cards from "./components/Cards";
 import NavBar from "./components/NavBar";
+import Form from "./Form";
 
 
 const cars = [
@@ -118,12 +119,31 @@ const Listing = () => {
 	const [search, setSearch] = useState("");
 	const [orderCar, setOrderCar] = useState(null);
 	const [orderSuccess, setOrderSuccess] = useState(false);
+	const [showSuccessModal, setShowSuccessModal] = useState(false);
 
 	const filteredCars = cars.filter(car =>
 		car.name.toLowerCase().includes(search.toLowerCase()) ||
 		car.description.toLowerCase().includes(search.toLowerCase()) ||
 		car.range.toLowerCase().includes(search.toLowerCase())
 	);
+
+	// Pagination
+	const carsPerPage = 6;
+	const [currentPage, setCurrentPage] = useState(1);
+	const totalPages = Math.ceil(filteredCars.length / carsPerPage);
+	const paginatedCars = filteredCars.slice(
+		(currentPage - 1) * carsPerPage,
+		currentPage * carsPerPage
+	);
+
+	const handlePageChange = (page) => {
+		setCurrentPage(page);
+	};
+
+	// Reset to first page on search
+	React.useEffect(() => {
+		setCurrentPage(1);
+	}, [search]);
 
 	const handleOrder = (car) => {
 		setOrderCar(car);
@@ -133,7 +153,11 @@ const Listing = () => {
 	const handleOrderSubmit = (orderData) => {
 		setOrderCar(null);
 		setOrderSuccess(true);
+		setShowSuccessModal(true);
 		// Here you could send orderData to a backend or show a confirmation
+		setTimeout(() => {
+			setShowSuccessModal(false);
+		}, 2000);
 	};
 
 	const handleOrderCancel = () => {
@@ -154,12 +178,16 @@ const Listing = () => {
 						className="w-full max-w-md px-4 py-2 rounded-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-400"
 					/>
 				</div>
-				{orderSuccess && (
-					<div className="text-green-400 text-center mb-6 font-semibold">Order placed successfully!</div>
+				{showSuccessModal && (
+					<div className="fixed inset-0 flex items-center justify-center z-50">
+						<div className="bg-white rounded-lg shadow-lg px-10 py-8 text-2xl font-bold text-green-600">
+							Order Complete!
+						</div>
+					</div>
 				)}
 				<div className="flex flex-wrap justify-center gap-10">
-					{filteredCars.length > 0 ? (
-						filteredCars.map(car => (
+					{paginatedCars.length > 0 ? (
+						paginatedCars.map(car => (
 							<Cards
 								key={car.id}
 								name={car.name}
@@ -175,9 +203,27 @@ const Listing = () => {
 						<p className="text-gray-400 text-lg">No cars found.</p>
 					)}
 				</div>
+				{/* Pagination Controls */}
+				{totalPages > 1 && (
+					<div className="flex justify-center mt-10 gap-2">
+						{Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+							<button
+								key={page}
+								onClick={() => handlePageChange(page)}
+								className={`px-4 py-2 rounded-full font-bold border transition ${
+									page === currentPage
+										? "bg-yellow-400 text-gray-900 border-yellow-400"
+										: "bg-gray-800 text-white border-gray-700 hover:bg-yellow-300 hover:text-gray-900"
+								}`}
+							>
+								{page}
+							</button>
+						))}
+					</div>
+				)}
 			</div>
 			{orderCar && (
-				<Order car={orderCar} onSubmit={handleOrderSubmit} onCancel={handleOrderCancel} />
+				<Form car={orderCar} onSubmit={handleOrderSubmit} onCancel={handleOrderCancel} />
 			)}
 		</div>
 	);
