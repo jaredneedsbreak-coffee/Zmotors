@@ -203,7 +203,6 @@ const Listing = () => {
 						<p className="text-gray-400 text-lg">No cars found.</p>
 					)}
 				</div>
-				{/* Pagination Controls */}
 				{totalPages > 1 && (
 					<div className="flex justify-center mt-10 gap-2">
 						{Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
