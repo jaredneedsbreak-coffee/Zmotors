@@ -5,59 +5,99 @@ import NavBar from "./components/NavBar";
 const cars = [
 	{
 		id: 1,
-		name: "Tesla Model 3",
-		image: "https://images.unsplash.com/photo-1511391403515-ec7e7b2b8b1b?auto=format&fit=crop&w=600&q=80",
-		price: "$38,990",
-		range: "272 miles",
-		description: "Popular all-electric sedan with advanced tech, autopilot, and fast charging."
+		name: "1970 Dodge Charger",
+		image: require("./images/1970 Dodge Charger.jpg"),
+		price: "$75,000",
+		range: "Classic Muscle",
+		description: "Iconic American muscle car, famous for its power and classic design."
 	},
 	{
 		id: 2,
-		name: "Nissan Leaf",
-		image: "https://images.unsplash.com/photo-1549921296-3a4bfe3b1c8b?auto=format&fit=crop&w=600&q=80",
-		price: "$28,140",
-		range: "149 miles",
-		description: "Affordable compact EV, great for city driving and short commutes."
+		name: "Bugatti Chiron",
+		image: require("./images/buggati chiron.jpg"),
+		price: "$3,000,000",
+		range: "261 mph top speed",
+		description: "One of the fastest and most luxurious hypercars in the world."
 	},
 	{
 		id: 3,
-		name: "Chevrolet Bolt EV",
-		image: "https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=600&q=80",
-		price: "$26,500",
-		range: "259 miles",
-		description: "Efficient hatchback with spacious interior and solid range."
+		name: "Dodge Challenger",
+		image: require("./images/dodge challenger.jpg"),
+		price: "$32,000",
+		range: "Modern Muscle",
+		description: "A modern take on the classic muscle car, known for its aggressive styling."
 	},
 	{
 		id: 4,
-		name: "Hyundai Ioniq 5",
-		image: "https://images.unsplash.com/photo-1622555067682-7e6c7b2e7e2b?auto=format&fit=crop&w=600&q=80",
-		price: "$41,800",
-		range: "303 miles",
-		description: "Striking design, ultra-fast charging, and roomy cabin."
+		name: "Dodge Ram",
+		image: require("./images/dodge ram.jpg"),
+		price: "$40,000",
+		range: "Pickup Truck",
+		description: "Powerful and reliable pickup, perfect for work and play."
 	},
 	{
 		id: 5,
-		name: "Ford Mustang Mach-E",
-		image: "https://images.unsplash.com/photo-1617814071584-2b1e6e7e7e2b?auto=format&fit=crop&w=600&q=80",
-		price: "$42,995",
-		range: "270 miles",
-		description: "Sporty electric SUV with powerful performance and tech features."
+		name: "Nissan GT-R R35",
+		image: require("./images/gtr r35.jpg"),
+		price: "$115,000",
+		range: "565 hp",
+		description: "Japanese supercar with advanced technology and blistering speed."
 	},
 	{
 		id: 6,
-		name: "Volkswagen ID.4",
-		image: "https://images.unsplash.com/photo-1617814071584-2b1e6e7e7e2b?auto=format&fit=crop&w=600&q=80",
-		price: "$39,995",
-		range: "275 miles",
-		description: "Versatile electric SUV with comfortable ride and modern interior."
+		name: "Lamborghini Aventador SVJ",
+		image: require("./images/Lamborghini Aventador SVJ .jpg"),
+		price: "$517,000",
+		range: "759 hp",
+		description: "Extreme performance and dramatic styling from Lamborghini."
 	},
 	{
 		id: 7,
-		name: "Kia EV6",
-		image: "https://images.unsplash.com/photo-1622555067682-7e6c7b2e7e2b?auto=format&fit=crop&w=600&q=80",
-		price: "$42,600",
-		range: "310 miles",
-		description: "Stylish crossover EV with fast charging and advanced safety."
+		name: "Lamborghini Huracan",
+		image: require("./images/lamborghini huracan.jpg"),
+		price: "$249,000",
+		range: "631 hp",
+		description: "Exotic supercar with a V10 engine and stunning looks."
+	},
+	{
+		id: 8,
+		name: "Lamborghini Revuelto",
+		image: require("./images/lamorghini ruvuelto.jpg"),
+		price: "$600,000",
+		range: "1001 hp (hybrid)",
+		description: "Lamborghini's latest hybrid supercar, combining power and efficiency."
+	},
+	{
+		id: 9,
+		name: "Nissan Skyline R33 GTR",
+		image: require("./images/Nissan Skyline R33 GTR.jpg"),
+		price: "$80,000",
+		range: "276 hp",
+		description: "Legendary JDM car, loved for its performance and tuning potential."
+	},
+	{
+		id: 10,
+		name: "Porsche 911",
+		image: require("./images/porsche 911.jpg"),
+		price: "$114,400",
+		range: "379 hp",
+		description: "Timeless sports car, renowned for its handling and engineering."
+	},
+	{
+		id: 11,
+		name: "Toyota Supra MK4",
+		image: require("./images/supra mk4.jpg"),
+		price: "$90,000",
+		range: "276 hp (stock)",
+		description: "Cult classic, famous for its tuning potential and movie stardom."
+	},
+	{
+		id: 12,
+		name: "Toyota Supra MK5",
+		image: require("./images/Supra mk5.jpg"),
+		price: "$45,000",
+		range: "382 hp",
+		description: "Modern Supra with BMW engineering and sharp styling."
 	}
 ];
 
